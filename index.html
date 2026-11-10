@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A live weather dashboard with city search and current weather information.">
+    <title>SkyCast - Weather Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js" defer></script>
+</head>
+<body>
+    <main class="dashboard">
+        <header class="header">
+            <div>
+                <p class="eyebrow">LIVE WEATHER</p>
+                <h1>SkyCast <span>☀</span></h1>
+                <p class="subtitle">Weather updates, wherever you are.</p>
+            </div>
+            <div class="live-indicator">
+                <span></span> Live data
+            </div>
+        </header>
+
+        <section class="search-section" aria-label="Search city weather">
+            <form id="search-form">
+                <label class="sr-only" for="city-input">Enter city name</label>
+                <input
+                    type="text"
+                    id="city-input"
+                    placeholder="Search for a city..."
+                    autocomplete="off"
+                    required
+                >
+                <button type="submit" id="search-button">Search</button>
+            </form>
+            <p id="status-message" role="status" aria-live="polite">
+                Enter a city to see its weather.
+            </p>
+        </section>
+
+        <section class="weather-card" id="weather-card" aria-label="Current weather">
+            <div class="weather-location">
+                <div>
+                    <p class="card-label">CURRENT WEATHER</p>
+                    <h2 id="city-name">--</h2>
+                    <p id="country-name">Search for a city</p>
+                </div>
+                <div class="weather-icon" id="weather-icon" aria-hidden="true">🌤️</div>
+            </div>
+
+            <div class="temperature-row">
+                <p class="temperature" id="temperature">--°</p>
+                <div>
+                    <p class="weather-description" id="weather-description">--</p>
+                    <p class="feels-like" id="feels-like">Feels like --°C</p>
+                </div>
+            </div>
+
+            <div class="weather-details">
+                <article class="detail-item">
+                    <span class="detail-icon">💧</span>
+                    <div>
+                        <p class="detail-label">Humidity</p>
+                        <p class="detail-value" id="humidity">--%</p>
+                    </div>
+                </article>
+
+                <article class="detail-item">
+                    <span class="detail-icon">💨</span>
+                    <div>
+                        <p class="detail-label">Wind Speed</p>
+                        <p class="detail-value" id="wind-speed">-- km/h</p>
+                    </div>
+                </article>
+
+                <article class="detail-item">
+                    <span class="detail-icon">🌡️</span>
+                    <div>
+                        <p class="detail-label">Pressure</p>
+                        <p class="detail-value" id="pressure">-- hPa</p>
+                    </div>
+                </article>
+
+                <article class="detail-item">
+                    <span class="detail-icon">☁️</span>
+                    <div>
+                        <p class="detail-label">Cloud Cover</p>
+                        <p class="detail-value" id="cloud-cover">--%</p>
+                    </div>
+                </article>
+            </div>
+
+            <p class="updated-time" id="updated-time">Waiting for weather data</p>
+        </section>
+
+        <footer class="footer">
+            <p>Powered by Open-Meteo API</p>
+            <p>SkyCast Weather Dashboard</p>
+        </footer>
+    </main>
+</body>
+</html>
